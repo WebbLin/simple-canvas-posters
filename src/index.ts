@@ -95,8 +95,8 @@ class SimpleCanvas {
 
   static textHeight = ({
     text = '',
-    width = 0,
-    lineHeight = 0,
+    width = 200,
+    lineHeight = 1,
     fontSize = 12,
     scale = 1
   }: any): number => {
@@ -105,8 +105,8 @@ class SimpleCanvas {
     const textRowNum = Math.ceil(textWidth / width);
     return textRowNum * (lineHeight + fontSize) * scale - lineHeight;
   };
-  static textWidth({ text, fontSize }) {
-    return getStrLength(text) * fontSize;
+  static textWidth({ text = '', fontSize = 12, scale = 1 }) {
+    return getStrLength(text) * fontSize * scale;
   }
   // 获取canvas高度
   getAutoCanvasHeight(): number {
