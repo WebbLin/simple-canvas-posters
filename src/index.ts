@@ -8,10 +8,16 @@ interface Layer {
   d?: number;
   path?: string;
   fontSize?: number;
+  fontStyle?: string;
+  fontFamily?: string;
   text?: string;
   lineHeight?: number;
+  maxLine?: number;
   backgroundColor?: string;
   color?: string;
+  borderWidth?: number;
+  borderColor?: string;
+  radius?: number;
   referLayer?: Layer;
   mode?: string;
   sWidth: number;
