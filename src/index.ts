@@ -178,15 +178,19 @@ class SimpleCanvas {
 
     ctx.save();
     ctx.beginPath();
+    ctx.arc(x + r, y + r, r, Math.PI, Math.PI * 1.5);
     ctx.moveTo(x + r, y);
     ctx.lineTo(x + w - r, y);
-    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + r);
+    ctx.arc(x + w - r, y + r, r, Math.PI * 1.5, Math.PI * 2);
     ctx.lineTo(x + w, y + h - r);
-    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + w - r, y + h);
+    ctx.arc(x + w - r, y + h - r, r, 0, Math.PI * 0.5);
     ctx.lineTo(x + r, y + h);
-    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + h - r);
+    ctx.arc(x + r, y + h - r, r, Math.PI * 0.5, Math.PI);
     ctx.lineTo(x, y + r);
-    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.lineTo(x + r, y);
     if (backgroundColor) {
       ctx.setFillStyle(backgroundColor);
       ctx.fill();
