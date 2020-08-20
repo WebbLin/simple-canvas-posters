@@ -341,7 +341,7 @@ class SimpleCanvas {
     ctx.setFontSize(fontSize);
     for (let a = 0; a < chr.length; ) {
       // 每行至少展示一个字符
-      if (ctx.measureText(temp).width < width || temp.length === 0) {
+      if (ctx.measureText(temp + chr[a]).width < width || temp.length === 0) {
         temp += chr[a++];
       } else if (maxLine && line === maxLine) {
         while (ctx.measureText(temp + '...').width > width && temp.length > 1) {
@@ -350,10 +350,6 @@ class SimpleCanvas {
         temp += '...';
         break;
       } else {
-        if (ctx.measureText(temp).width > width && temp.length > 1) {
-          temp = temp.slice(0, -1);
-          a -= 1;
-        }
         line++;
         row.push(temp);
         temp = '';
